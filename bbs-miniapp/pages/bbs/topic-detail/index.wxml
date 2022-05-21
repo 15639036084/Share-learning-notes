@@ -1,0 +1,66 @@
+<!--pages/news-detail/index.wxml-->
+<view class='container'>
+  <view class='news-container'>
+    <view class='weui-flex user-info'>
+      <image wx:if="{{!topic.anonymous}}" src='{{topic.member.avatarUrl}}'></image>
+      <image wx:if="{{topic.anonymous}}" src='/images/avatar.png'></image>
+      <view class="info">
+        <view wx:if="{{!topic.anonymous}}" class='nick-name'>{{topic.member.nickname}}</view>
+        <view wx:if="{{topic.anonymous}}" class='nick-name'>匿名</view>
+        <view class='create-time'>{{topic.createTime}}</view>
+      </view>
+      <view class="follow" wx:if="{{!topic.anonymous}}">
+        <image src="/images/follow-off.png" wx:if="{{!isFollow}}" bindtap="follow"></image>
+        <image src="/images/follow-on.png" wx:if="{{isFollow}}" bindtap="follow"></image>
+      </view>
+    </view>
+    <view class="news-title">
+      {{topic.title}}
+    </view>
+    <view class="news-summary">
+      <image class="topic-pic" src="{{item}}" wx:for="{{topic.picUrls}}" wx:key="index" data-pic="{{item}}" bindtap="showImg"></image>
+    </view>
+    <view>
+      <video style="width: 100%" src="{{topic.videoUrl}}" wx:if="{{topic.videoUrl}}" object-fit="fill"></video>
+    </view>
+    <view class="content" wx:if="{{topic.content}}">
+      {{topic.content}}
+    </view>
+    <view class='news-date'>
+      <view class="news-liked">{{topic.createTime}}</view>
+      <view class="news-liked">
+        <text>{{topic.likeNumber}}点赞 {{topic.replyNumber}}评论</text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item' wx:for="{{replyList}}" wx:for-item="reply" wx:key="index">
+    <view class='weui-flex user-info'>
+      <image wx:if="{{!reply.anonymous}}" src='{{reply.member.avatarUrl}}'></image>
+      <image wx:if="{{reply.anonymous}}" src='/images/avatar.png'></image>
+      <view class="info">
+        <view wx:if="{{!reply.anonymous}}" class='nick-name'>{{reply.member.nickname}}</view>
+        <view wx:if="{{reply.anonymous}}" class='nick-name'>匿名</view>
+        <view class='create-time'>{{reply.createTime}}</view>
+      </view>
+    </view>
+    <view class='content'>
+      {{reply.content}}
+    </view>
+  </view>
+
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class='weui-flex footer-box'>
+      <view class='comment' bindtap='comment' data-id='{{topic.id}}'>
+        请输入评论...
+      </view>
+      <image src='/images/comment.png' data-id='{{topic.id}}' bindtap='commentList' hidden="true"></image>
+      <image src="/images/collect-off.png" wx:if="{{!isCollect}}" bindtap="collect"></image>
+      <image src="/images/collect-on.png" wx:if="{{isCollect}}" bindtap="collect"></image>
+      <image src='/images/liked-off.png' data-id='{{topic.id}}' bindtap='liked' hidden='{{isLike}}'></image>
+      <image src='/images/liked-on.png' data-id='{{topic.id}}' hidden='{{!isLike}}' bindtap='unliked'></image>
+      <button class='share' open-type='share'>
+        <image src='/images/share.png' data-id='{{topic.id}}'></image>
+      </button>
+    </view>
+  </view>
+</view>
