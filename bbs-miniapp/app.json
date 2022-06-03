@@ -17,7 +17,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "论坛",
+    "navigationBarTitleText": "笔记分享",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

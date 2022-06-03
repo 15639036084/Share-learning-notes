@@ -18,7 +18,7 @@ public class LikeEntity implements Serializable {
 	private Integer id;
 	//会员id
 	private Long memberId;
-	//帖子id
+	//笔记id
 	private Integer topicId;
 	//创建时间
 	private Date createTime;
@@ -48,13 +48,13 @@ public class LikeEntity implements Serializable {
 		return memberId;
 	}
 	/**
-	 * 设置：帖子id
+	 * 设置：笔记id
 	 */
 	public void setTopicId(Integer topicId) {
 		this.topicId = topicId;
 	}
 	/**
-	 * 获取：帖子id
+	 * 获取：笔记id
 	 */
 	public Integer getTopicId() {
 		return topicId;

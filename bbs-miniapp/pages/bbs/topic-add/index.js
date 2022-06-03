@@ -60,7 +60,7 @@ Page({
     var title = e.detail.value.title;
     if (title == '') {
       wx.showToast({
-        title: '请填写话题',
+        title: '请填写笔记',
         icon: 'none'
       })
       return;

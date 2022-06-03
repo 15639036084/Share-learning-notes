@@ -25,7 +25,7 @@ import com.wfuhui.modules.bbs.service.ReplyService;
 import com.wfuhui.modules.bbs.service.TopicService;
 
 /**
- * 帖子
+ * 笔记
  */
 @RestController
 @RequestMapping("/api/topic")
